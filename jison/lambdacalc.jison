@@ -21,7 +21,8 @@
 
 file
   : expr EOF
-    { return $expr; }
+    { typeof console !== 'undefined' ? console.log($expr) : print($expr);
+      return $expr; }
   ;
 
 expr
