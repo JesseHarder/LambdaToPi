@@ -9,7 +9,7 @@ function performTranslation() {
     
     piString = translate(parserOutput, "topP");
     
-    document.getElementById('answers').innerHTML = piString;
+    document.getElementById('answers').innerHTML = (piString != "") ? piString : "Invalid Input String.";
     
     resetIter();
 }
