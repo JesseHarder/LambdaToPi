@@ -97,6 +97,9 @@ function translate (expr, chan) {
             /* chanA and chanB should also be concatenated with iter */
             returnString = ( "new(" ).concat(chanA,") . new(",chanB,") . (",translate(expr1, chanA), " | ",chanA,"!",chanB," . ",chanA,"!", chan , " | *( ",chanB,"?",chanC," . ", translate(expr2, chanC), "))");
             break;
+            
+        default:
+            return "Error";
             }
     
     return returnString;
