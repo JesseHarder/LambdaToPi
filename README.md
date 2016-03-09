@@ -1,2 +1,2 @@
 # LambdaToPi
-A project to create a web application to translate lambda calculus into pi calculus.
+A web application that can be used to translate a lambda calculus expression into an equivalent pi calculus expressions.
