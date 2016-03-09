@@ -70,6 +70,7 @@
     <p>
     
     <br><br>
+    Note: the output includes added spaces for improved legibility. Spaces are not specially defined in the Pi grammar.<br>
     <hr>
     <b>Translation Example: Convert (λx.x) y to Pi</b><br><br>
     
@@ -91,7 +92,7 @@
     
     <hr>
     
-    <b>Note: spaces matter. </b><br>
+    <b>Note: spaces matter </b><br>
     ^x.xy will return a parse error. <br>
     ^x.x y will parse appropriately: ["LambdaExpr","x",["ApplyExpr",["VarExpr","x"],["VarExpr","y"]]]<br>
     and return: topP?x . topP?chanQ1 . new(chanA2) . new(chanB2) . (x!chanA2 | chanA2!chanB2 . chanA2!chanQ1 | *( chanB2?chanC2 . y!chanC2))
