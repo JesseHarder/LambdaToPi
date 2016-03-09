@@ -1,3 +1,11 @@
+/* Function: performTranslation
+ * 
+ * This function is called to take the contents of the input field,
+ * run it through the translator, and update the page's output
+ * with the corresponding translation or error report.
+ *
+ */
+
 function performTranslation() {
     
     var lambdaString = "";
