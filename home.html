@@ -54,13 +54,13 @@
     
 </p>
 	
-	<form>
-        Enter the lambda expression: <input type="text" name="lambda" id="input" onKeyup="Javascript: if (event.keyCode==13)performTranslation();">
+	<form name="lambdaform" onSubmit="return false">
+        Enter the lambda expression: <input type="text" name="lambda" id="input" onKeydown="if (event.keyCode==13) document.getElementById('translatebutton').click();">
             
 	</form>
   
     
-    <button onclick=performTranslation()>Translate</button>
+    <button id="translatebutton" onclick=performTranslation()>Translate</button>
 	
 	
 	<p><b>Result:</b></p>
