@@ -4,25 +4,91 @@
 <!-- Copyright 2016 Jesse and Tatiana -->
 <html lang="en">
   <head>
-    <title>My Title</title>
+    <title>Lambda to Pi Translator</title>
 	<link href="stylesheets/style.css" type="text/css" rel="stylesheet" />
     <meta charset="utf-8" />
   </head>
 
   <body>
-	<h1>Lambda to Pi Converter</h1>
+	<h1>Lambda to Pi Translator</h1>
 	
-	<p>Intro Paragraph Here</p>
+    <p>This translator converts Lambda Calculus Expressions to Pi Calculus Expressions based on the following model:<br>
+    
+    <table style="width:100%">
+        <tr>
+            <td><b>Grammar Element</b></td>
+            <td><b>Lambda Input</b></td>
+            <td><b>Pi Output</b></td>
+        </tr>
+        <tr>
+            <td>term:</td>
+            <td>M</td>
+            <td>[M](p)</td>
+        </tr>
+        <tr>
+            <td>variable:</td>
+            <td>x</td>
+            <td>x!p</td>
+        </tr>
+  
+        <tr>
+            <td>expression:</td>
+            <td>λx M</td>
+            <td>p?x.p?q.[M](q)</td>
+        </tr>
+        <tr>
+            <td>application:</td>
+            <td>M N</td>
+            <td>[M N](p) = new(a).new(b).(([M](a))|(a!b.a!p)|*((b?c).[N](c))</td>
+        </tr>
+    </table>
+    
+    <br>The translator will accept either the lambda character 'λ' or the carat '^' interchangeably. <br>
+    Abbrevated lambda format is suppoted (eg. λxyz.xyz vs λxλyλz.xyz). <br>
+    Parentheses are supported. <br>
+    Input Lambda expression MUST use dot notation.<br><br>
+    
+    <hr>
+    
+    <b>Translator:</b>
+    
+</p>
 	
 	<form>
-        Enter the lambda expression: <input type="text" name="lambda" id="input">
+        Enter the lambda expression: <input type="text" name="lambda" id="input" onKeyup="Javascript: if (event.keyCode==13)performTranslation();">
+            
 	</form>
+  
+    
+    <button onclick=performTranslation()>Translate</button>
 	
-	<button onclick=performTranslation()>Translate</button>
 	
-	<p>Result:</p>
+	<p><b>Result:</b></p>
     
 	<div id="answers"></div>
+    
+    <p>
+    
+    <br><br>
+    <hr>
+    <b>Translation Example: Convert (λx.x) y to Pi</b><br><br>
+    
+    In simple Pi, using the model described above, the translation is: <br>
+    [M N](p) = new(a) . new(b) . ( a?x.a?q.x!q | a!b.a!p | *(b?c.y!c))<br><br>
+    
+    The translator produces: <br>
+    new(chanA1) . new(chanB1) . (chanA1?x . chanA1?chanQ2 . x!chanQ2 | chanA1!chanB1 . chanA1!topP | *( chanB1?chanC1 . y!chanC1))<br><br>
+
+    <hr>
+    <b>Note: spaces matter. </b><br>
+    ^x.xy will return a parse error <br>
+    ^x.x y will return the appropriate parser output: ["LambdaExpr","x",["ApplyExpr",["VarExpr","x"],["VarExpr","y"]]]<br>
+    ^x.(x y) will return the same parser output: ["LambdaExpr","x",["ApplyExpr",["VarExpr","x"],["VarExpr","y"]]]<br><br>
+    
+    (^x.x)y will return a parse error<br>
+    (^x.x) y will return the appropriate parser output: ["ApplyExpr",["LambdaExpr","x",["VarExpr","x"]],["VarExpr","y"]]<br>
+    
+    </p>
     
 
   </body>
