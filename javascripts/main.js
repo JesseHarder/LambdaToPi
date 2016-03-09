@@ -1,3 +1,9 @@
+/* var inent = document.getElementById("input");
+inent.addEventListener("keydown", function(e){
+                     if( e.keyCode ===13) { performTranslation();
+                     }
+                }) */
+
 function performTranslation() {
     
     var lambdaString = "";

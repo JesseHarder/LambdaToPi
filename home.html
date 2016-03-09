@@ -15,7 +15,7 @@
 	<p>Intro Paragraph Here</p>
 	
 	<form>
-        Enter the lambda expression: <input type="text" name="lambda" id="input">
+        Enter the lambda expression: <input type="text" name="lambda" id="input" onKeydown="Javascript: if (event.keyCode==13)performTranslation();">
             
 	</form>
   
@@ -23,7 +23,7 @@
     <button onclick=performTranslation()>Translate</button>
 	
 	
-	<p>Result:</p>
+	<p><b>Result:</b></p>
     
 	<div id="answers"></div>
     
