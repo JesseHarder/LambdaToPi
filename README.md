@@ -42,10 +42,10 @@ Note: The output includes added spaces for improved legibility. Spaces are not s
 <b>Translation Example: Convert (λx.x) y to Pi</b><br><br>
 
 In simple Pi, using the model described above, the translation is: <br>
-[M N](p) = new(a) . new(b) . ( a?x . a?q . x!q | a!b . a!p | *( b?c . y!c ))<br><br>
+[M N](p) = new(a) . new(b) . ( a?x . a?q . x!q | a!b . a!p | *(b?c . y!c))<br><br>
 
 The translator produces: <br>
-new(chanA1) . new(chanB1) . (chanA1?x . chanA1?chanQ2 . x!chanQ2 | chanA1!chanB1 . chanA1!topP | *( chanB1?chanC1 . y!chanC1))<br><br>
+new(chanA1) . new(chanB1) . (chanA1?x . chanA1?chanQ2 . x!chanQ2 | chanA1!chanB1 . chanA1!topP | *(chanB1?chanC1 . y!chanC1))<br><br>
 
 <hr>
 
@@ -62,12 +62,12 @@ topP?x . topP?chanQ1 . chanQ1?y . chanQ1?chanQ2 . x!chanQ2<br><br>
 <b>Note: Spaces do matter in the lambda expression input. </b><br>
 ^x.xy will return a parse error. <br>
 ^x.x y will parse appropriately: ["LambdaExpr","x",["ApplyExpr",["VarExpr","x"],["VarExpr","y"]]]<br>
-and return: topP?x . topP?chanQ1 . new(chanA2) . new(chanB2) . (x!chanA2 | chanA2!chanB2 . chanA2!chanQ1 | *( chanB2?chanC2 . y!chanC2))
+and return: topP?x . topP?chanQ1 . new(chanA2) . new(chanB2) . (x!chanA2 | chanA2!chanB2 . chanA2!chanQ1 | *(chanB2?chanC2 . y!chanC2))
 ^x.(x y) will parse and return the same.<br><br>
 
 (^x.x)y will return a parse error.<br>
 (^x.x) y will parse appropreately: ["ApplyExpr",["LambdaExpr","x",["VarExpr","x"]],["VarExpr","y"]]<br>
-and return: new(chanA1) . new(chanB1) . (chanA1?x . chanA1?chanQ2 . x!chanQ2 | chanA1!chanB1 . chanA1!topP | *( chanB1?chanC1 . y!chanC1))
+and return: new(chanA1) . new(chanB1) . (chanA1?x . chanA1?chanQ2 . x!chanQ2 | chanA1!chanB1 . chanA1!topP | *(chanB1?chanC1 . y!chanC1))
 
 <br><br>
 <hr>

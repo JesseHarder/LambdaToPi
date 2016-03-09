@@ -75,10 +75,10 @@
     <b>Translation Example: Convert (λx.x) y to Pi</b><br><br>
     
     In simple Pi, using the model described above, the translation is: <br>
-    [M N](p) = new(a) . new(b) . ( a?x . a?q . x!q | a!b . a!p | *( b?c . y!c ))<br><br>
+    [M N](p) = new(a) . new(b) . (a?x . a?q . x!q | a!b . a!p | *(b?c . y!c))<br><br>
     
     The translator produces: <br>
-    new(chanA1) . new(chanB1) . (chanA1?x . chanA1?chanQ2 . x!chanQ2 | chanA1!chanB1 . chanA1!topP | *( chanB1?chanC1 . y!chanC1))<br><br>
+    new(chanA1) . new(chanB1) . (chanA1?x . chanA1?chanQ2 . x!chanQ2 | chanA1!chanB1 . chanA1!topP | *(chanB1?chanC1 . y!chanC1))<br><br>
 
     <hr>
     
