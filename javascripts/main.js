@@ -10,7 +10,7 @@ function performTranslation() {
     lambdaString = inputField.value;
     
     if (lambdaString == "") {
-        outputField.innerHTML = "Please enter a valid lambda expression before clicking Translate.";
+        outputField.innerHTML = "Please enter a valid lambda expression.";
     } else {
         try {
             parserOutput = lambdacalc.parse(lambdaString);
